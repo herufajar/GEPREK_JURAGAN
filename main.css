@@ -4,19 +4,20 @@ body {
     background-position: center; /* Mengatur posisi gambar di tengah */
     background-repeat: no-repeat; /* Menghindari pengulangan gambar */
     color: hsl(17, 64%, 98%); /* Mengubah warna teks agar lebih kontras */
+    margin-top: 0%;
+    margin-inline-start: 0%;
     font-family: 'Arial', sans-serif; /* Menambahkan font yang lebih baik */
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px; /* Menambah padding untuk ruang yang lebih nyaman */
-    background-color: #c20e0e; /* Warna latar belakang yang bold */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan halus di bawah header */
-    position: relative; /* Membuat header tetap di atas saat scroll */
-    top: 0; /* Menempatkan header di atas */
-    z-index: 1000; /* Menjamin header berada di atas elemen lainnya */
+    position: relative; /* Membuat header tetap di atas */
+    top: 0; /* Posisi di atas */
+    left: 0; /* Posisi di kiri */
+    right: 0; /* Posisi di kanan */
+    padding: 10px 20px;
+    background-color: #c20e0e; /* Warna latar belakang header */
+    transition: top 0.3s; /* Transisi yang halus untuk efek muncul/hilang */
+    margin-top: 0%;
 }
 
 .logo {
@@ -117,6 +118,7 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Membuat grid responsif */
     gap: 20px; /* Jarak antar item grid */
     padding: 20px; /* Memberikan ruang di sekitar grid */
+    margin-top: 200px;
 }
 
 .grid-item {
