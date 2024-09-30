@@ -128,7 +128,7 @@
             </div>
         </section>
     
-        <form id="order-form" onsubmit="return sendOrder();">
+        <form id="order-form" action="https://wa.me/6285643771401" method="get">
             <h2>Form Pemesanan</h2>
             <div id="order-items">
                 <div class="order-item">
@@ -157,20 +157,48 @@
             <button type="button" id="add-item">Tambah Pesanan</button>
             <label for="tempat">Tempat COD:</label>
             <input type="text" id="tempat" name="tempat" required>
+            <label for="keterangan">Keterangan:</label>
+            <textarea id="keterangan" name="keterangan"></textarea>
             <button type="submit">Kirim Pesanan</button>
         </form>
+    
+        <section id="promo">
+            <h2>Info Promo</h2>
+            <div class="promo-video-container">
+                <video controls>
+                    <source src="assets/images/spesial promo.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video.
+                </video>
+            </div>
+            <h3>Pemesanan Promo</h3>
+            <label for="promo-menu">Pilih Menu Promo:</label>
+            <select id="promo-menu" name="promo-menu" required>
+                <option value="Promo Ayam Geprek Bakar">Promo Ayam Geprek Bakar</option>
+                <!-- Tambahkan pilihan menu promo lainnya di sini -->
+            </select>
+            <button type="button" class="btn-promo" onclick="sendWhatsApp()">Pesan Promo</button>
+        </section>
+        
+        <section id="cuaca" class="grid">
+            <h2>Update Cuaca</h2>
+            <div id="weather-info"></div>
+        </section>
+    
+        <section id="tentang" class="grid">
+            <h2>Tentang Geprek Juragan</h2>
+            <article>
+                <p>Geprek Juragan adalah tempat terbaik untuk menikmati ayam geprek dengan berbagai sambal yang menggugah selera. Kami berkomitmen untuk memberikan pengalaman kuliner yang tak terlupakan.</p>
+                <p>&copy; 2024 Geprek Juragan. Semua hak dilindungi.</p>
+            </article>
+        </section>
     </main>
-
-    <footer>
-        <p>&copy; 2024 Geprek Juragan. All rights reserved.</p>
-    </footer>
-
+    
     <script>
         document.getElementById('add-item').addEventListener('click', function() {
-            var orderItemsDiv = document.getElementById('order-items');
-            var newOrderItem = document.createElement('div');
-            newOrderItem.className = 'order-item';
-            newOrderItem.innerHTML = `
+            const orderItemsDiv = document.getElementById('order-items');
+            const newOrderItem = document.createElement('div');
+            newOrderItem.classList.add('order-item');
+            newOrderItem.innerHTML = 
                 <label for="menu">Pilih Menu:</label>
                 <select name="menu[]" required>
                     <option value="Ayam Geprek Sambal Bawang">Ayam Geprek Sambal Bawang</option>
@@ -189,33 +217,29 @@
                 <label for="jumlah">Jumlah:</label>
                 <input type="number" name="jumlah[]" min="1" required>
                 <button type="button" class="remove-item">Hapus</button>
-            `;
+            ;
             orderItemsDiv.appendChild(newOrderItem);
         });
-
+    
         document.getElementById('order-items').addEventListener('click', function(event) {
             if (event.target.classList.contains('remove-item')) {
-                event.target.parentElement.remove();
+                const orderItem = event.target.parentElement;
+                orderItem.remove();
             }
         });
-
-        function sendOrder() {
-            var nama = document.getElementById('nama').value;
-            var tempat = document.getElementById('tempat').value;
-            var menus = Array.from(document.querySelectorAll('select[name="menu[]"]'));
-            var jumlahs = Array.from(document.querySelectorAll('input[name="jumlah[]"]'));
-            
-            var message = `Pesanan Baru:\n\nNama: ${nama}\nTempat COD: ${tempat}\n\nDetail Pesanan:\n`;
-
-            menus.forEach((menu, index) => {
-                message += `${menu.value} - Jumlah: ${jumlahs[index].value}\n`;
-            });
-
-            var whatsappUrl = `https://api.whatsapp.com/send?phone=6285643771401&text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-
-            return false; // Mencegah form dari pengiriman default
+    
+        function sendWhatsApp() {
+            const selectedPromo = document.getElementById('promo-menu').value;
+            const phoneNumber = '6285643771401'; // Nomor WhatsApp
+            const message = Saya ingin memesan: ${selectedPromo};
+            const url = https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)};
+    
+            // Redirect to WhatsApp
+            window.open(url, '_blank');
         }
     </script>
-</body>
-</html>
+    
+    <script src="main.js"></script>
+    <script src="script.js?v=1.0.1"></script>
+    </body>
+    </html>
