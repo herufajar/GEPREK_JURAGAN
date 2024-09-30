@@ -30,6 +30,12 @@
         button:hover {
             background-color: #e64a19;
         }
+        /* Gaya untuk video */
+        .promo-video {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
     </style>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="style.css?v=1.0.1">
@@ -50,6 +56,7 @@
     <main>
         <section id="menu" class="grid">
             <h2>Menu Ayam Geprek</h2>
+            <!-- Daftar Menu -->
             <div class="grid-item">
                 <img src="assets/images/gambar geprek bawang.jpg" alt="Ayam Geprek Sambal Bawang" class="menu-image">
                 <h3>Ayam Geprek Sambal Bawang</h3>
@@ -80,7 +87,7 @@
                 <p>Deskripsi: Nasi + Ayam geprek + Lalapan + Sambal bakar hot</p>
                 <p>Harga: 15k</p>
             </div>
-    
+
             <h2>Menu Tambahan</h2>
             <div class="grid-item">
                 <img src="assets/images/skin krispi.jpg" alt="Crispy Chicken Skin" class="menu-image">
@@ -112,7 +119,7 @@
                 <p>Deskripsi: Semua varian sambal</p>
                 <p>Harga: 2k</p>
             </div>
-    
+
             <h2>Menu Minuman</h2>
             <div class="grid-item">
                 <img src="assets/images/es teh.jpg" alt="Es Teh Juragan" class="menu-image">
@@ -127,13 +134,17 @@
                 <p>Harga: 5k</p>
             </div>
         </section>
-    
-        <form id="order-form" action="https://wa.me/6285643771401" method="get">
+
+        <form id="order-form" onsubmit="return sendOrder();">
             <h2>Form Pemesanan</h2>
             <div id="order-items">
                 <div class="order-item">
                     <label for="nama">Nama:</label>
                     <input type="text" id="nama" name="nama" required>
+
+                    <label for="alamat">Alamat (COD):</label>
+                    <input type="text" id="alamat" name="alamat" required>
+
                     <label for="menu">Pilih Menu:</label>
                     <select name="menu[]" required>
                         <option value="Ayam Geprek Sambal Bawang">Ayam Geprek Sambal Bawang</option>
@@ -154,51 +165,62 @@
                     <button type="button" class="remove-item">Hapus</button>
                 </div>
             </div>
-            <button type="button" id="add-item">Tambah Pesanan</button>
-            <label for="tempat">Tempat COD:</label>
-            <input type="text" id="tempat" name="tempat" required>
-            <label for="keterangan">Keterangan:</label>
-            <textarea id="keterangan" name="keterangan"></textarea>
+            <button type="button" id="add-item">Tambah Item</button>
             <button type="submit">Kirim Pesanan</button>
         </form>
-    
+
         <section id="promo">
-            <h2>Info Promo</h2>
-            <div class="promo-video-container">
-                <video controls>
-                    <source src="assets/images/spesial promo.mp4" type="video/mp4">
-                    Browser Anda tidak mendukung video.
-                </video>
-            </div>
-            <h3>Pemesanan Promo</h3>
-            <label for="promo-menu">Pilih Menu Promo:</label>
-            <select id="promo-menu" name="promo-menu" required>
-                <option value="Promo Ayam Geprek Bakar">Promo Ayam Geprek Bakar</option>
-                <!-- Tambahkan pilihan menu promo lainnya di sini -->
-            </select>
-            <button type="button" class="btn-promo" onclick="sendWhatsApp()">Pesan Promo</button>
+            <h2>Promo Menarik!</h2>
+            <video controls class="promo-video">
+                <source src="assets/images/spesial promo.mp4" type="video/mp4">
+                Browser Anda tidak mendukung video.
+            </video>
+
+            <!-- Form Pemesanan Menu Promo -->
+            <h2>Pesan Menu Promo!</h2>
+            <form id="promo-order-form" onsubmit="return sendPromoOrder();">
+                <label for="promo-nama">Nama:</label>
+                <input type="text" id="promo-nama" name="promo-nama" required>
+
+                <label for="promo-alamat">Alamat (COD):</label>
+                <input type="text" id="promo-alamat" name="promo-alamat" required>
+
+                <label for="promo-menu">Pilih Menu Promo:</label>
+                <select name="promo-menu" id="promo-menu" required>
+                    <option value="Ayam Geprek Sambal Bawang">Ayam Geprek Sambal Bawang</option>
+                    <option value="Ayam Geprek Sambal Ijo">Ayam Geprek Sambal Ijo</option>
+                    <option value="Ayam Geprek Sambal Matah">Ayam Geprek Sambal Matah</option>
+                    <option value="Ayam Geprek Mozarella">Ayam Geprek Mozarella</option>
+                    <option value="Ayam Geprek Bakar Hot">Ayam Geprek Bakar Hot</option>
+                </select>
+                <label for="promo-jumlah">Jumlah:</label>
+                <input type="number" name="promo-jumlah" id="promo-jumlah" min="1" required>
+
+                <button type="submit">Pesan Promo</button>
+            </form>
         </section>
-        
-        <section id="cuaca" class="grid">
-            <h2>Update Cuaca</h2>
-            <div id="weather-info"></div>
+
+        <section id="cuaca">
+            <h2>Cuaca Hari Ini</h2>
+            <p id="weather-info">Memuat data cuaca...</p>
         </section>
-    
-        <section id="tentang" class="grid">
-            <h2>Tentang Geprek Juragan</h2>
-            <article>
-                <p>Geprek Juragan adalah tempat terbaik untuk menikmati ayam geprek dengan berbagai sambal yang menggugah selera. Kami berkomitmen untuk memberikan pengalaman kuliner yang tak terlupakan.</p>
-                <p>&copy; 2024 Geprek Juragan. Semua hak dilindungi.</p>
-            </article>
+
+        <section id="tentang">
+            <h2>Tentang Kami</h2>
+            <p>Geprek Juragan adalah restoran yang menyajikan ayam geprek lezat dengan berbagai pilihan sambal. Kami berkomitmen untuk memberikan pelayanan terbaik dan menjaga kualitas makanan kami.</p>
         </section>
     </main>
-    
+
+    <footer>
+        <p>© 2024 Geprek Juragan. Semua hak dilindungi.</p>
+    </footer>
+
     <script>
+        // Fungsi untuk menambahkan item baru ke form pemesanan
         document.getElementById('add-item').addEventListener('click', function() {
-            const orderItemsDiv = document.getElementById('order-items');
-            const newOrderItem = document.createElement('div');
-            newOrderItem.classList.add('order-item');
-            newOrderItem.innerHTML = 
+            const orderItem = document.createElement('div');
+            orderItem.className = 'order-item';
+            orderItem.innerHTML = `
                 <label for="menu">Pilih Menu:</label>
                 <select name="menu[]" required>
                     <option value="Ayam Geprek Sambal Bawang">Ayam Geprek Sambal Bawang</option>
@@ -217,29 +239,62 @@
                 <label for="jumlah">Jumlah:</label>
                 <input type="number" name="jumlah[]" min="1" required>
                 <button type="button" class="remove-item">Hapus</button>
-            ;
-            orderItemsDiv.appendChild(newOrderItem);
+            `;
+            document.getElementById('order-items').appendChild(orderItem);
         });
-    
-        document.getElementById('order-items').addEventListener('click', function(event) {
+
+        // Fungsi untuk menghapus item dari form pemesanan
+        document.addEventListener('click', function(event) {
             if (event.target.classList.contains('remove-item')) {
-                const orderItem = event.target.parentElement;
-                orderItem.remove();
+                event.target.parentElement.remove();
             }
         });
-    
-        function sendWhatsApp() {
-            const selectedPromo = document.getElementById('promo-menu').value;
-            const phoneNumber = '6285643771401'; // Nomor WhatsApp
-            const message = Saya ingin memesan: ${selectedPromo};
-            const url = https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)};
-    
-            // Redirect to WhatsApp
-            window.open(url, '_blank');
+
+        function sendOrder() {
+            // Ambil nama, alamat, menu, dan jumlah dari form
+            const nama = document.getElementById('nama').value;
+            const alamat = document.getElementById('alamat').value;
+            const orderItems = document.querySelectorAll('.order-item');
+            let pesan = `Pesanan Baru dari ${nama}:\n`;
+            pesan += `Alamat COD: ${alamat}\n\n`; // Tambahkan alamat ke pesan
+
+            orderItems.forEach(item => {
+                const menu = item.querySelector('select').value;
+                const jumlah = item.querySelector('input[type="number"]').value;
+                pesan += `- ${menu}: ${jumlah}\n`;
+            });
+
+            // Encode pesan untuk URL
+            const encodedPesan = encodeURIComponent(pesan);
+            const waNumber = '6285643771401'; // Ganti dengan nomor WhatsApp Anda
+            const waURL = `https://wa.me/${waNumber}?text=${encodedPesan}`;
+
+            // Buka URL WhatsApp
+            window.open(waURL, '_blank');
+            
+            return false; // Mencegah pengiriman form asli
+        }
+
+        function sendPromoOrder() {
+            // Ambil nama, alamat, menu promo, dan jumlah dari form
+            const promoNama = document.getElementById('promo-nama').value;
+            const promoAlamat = document.getElementById('promo-alamat').value;
+            const promoMenu = document.getElementById('promo-menu').value;
+            const promoJumlah = document.getElementById('promo-jumlah').value;
+            let promoPesan = `Pesanan Promo dari ${promoNama}:\n`;
+            promoPesan += `Alamat COD: ${promoAlamat}\n`;
+            promoPesan += `Menu: ${promoMenu}, Jumlah: ${promoJumlah}\n`;
+
+            // Encode pesan untuk URL
+            const encodedPromoPesan = encodeURIComponent(promoPesan);
+            const waNumber = '6285643771401'; // Ganti dengan nomor WhatsApp Anda
+            const waURL = `https://wa.me/${waNumber}?text=${encodedPromoPesan}`;
+
+            // Buka URL WhatsApp
+            window.open(waURL, '_blank');
+
+            return false; // Mencegah pengiriman form asli
         }
     </script>
-    
-    <script src="main.js"></script>
-    <script src="script.js?v=1.0.1"></script>
-    </body>
-    </html>
+</body>
+</html>
