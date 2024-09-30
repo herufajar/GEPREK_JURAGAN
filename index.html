@@ -36,9 +36,13 @@
             height: auto;
             margin: 20px 0;
         }
+
     </style>
+
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="style.css?v=1.0.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
 </head>
 <body>
    <header>
@@ -51,6 +55,10 @@
             <li><a href="#tentang">Tentang</a></li>
         </ul>
     </nav>
+    <button class="hamburger">
+        <i class="fas fa-bars"></i>
+    </button>
+    
 </header>
 
 
@@ -300,5 +308,43 @@
             return false; // Mencegah pengiriman form asli
         }
     </script>
+
+<main>
+    <!-- Konten halaman Anda -->
+    <div style="height: 2000px;">Scroll untuk melihat efek header</div>
+</main>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    hamburger.classList.toggle('active');
+});
+
+</script>
+
+
+<script>
+    // Skrip JavaScript untuk efek hilang/muncul pada header
+    let lastScrollTop = 0; // Menyimpan posisi scroll terakhir
+        const header = document.querySelector('header'); // Ambil elemen header
+
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop; // Dapatkan posisi scroll saat ini
+
+            if (currentScroll > lastScrollTop) {
+                // Jika scroll ke bawah, sembunyikan header
+                header.style.top = "-100px"; // Sembunyikan header
+            } else {
+                // Jika scroll ke atas, tampilkan header
+                header.style.top = "0"; // Tampilkan header
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Atur posisi scroll terakhir
+        });
+
+</script>
 </body>
 </html>
