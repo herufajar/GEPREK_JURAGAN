@@ -164,19 +164,21 @@
     
         <section id="promo">
             <h2>Info Promo</h2>
-            <video controls>
-                <source src="assets/images/promo spesial.mp4" type="video/mp4">
-                Browser Anda tidak mendukung video.
-            </video>
+            <div class="promo-video-container">
+                <video controls>
+                    <source src="assets/images/spesial promo.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video.
+                </video>
+            </div>
             <h3>Pemesanan Promo</h3>
             <label for="promo-menu">Pilih Menu Promo:</label>
             <select id="promo-menu" name="promo-menu" required>
                 <option value="Promo Ayam Geprek Bakar">Promo Ayam Geprek Bakar</option>
                 <!-- Tambahkan pilihan menu promo lainnya di sini -->
             </select>
-            <button type="button" onclick="sendWhatsApp()">Pesan Promo</button>
+            <button type="button" class="btn-promo" onclick="sendWhatsApp()">Pesan Promo</button>
         </section>
-    
+        
         <section id="cuaca" class="grid">
             <h2>Update Cuaca</h2>
             <div id="weather-info"></div>

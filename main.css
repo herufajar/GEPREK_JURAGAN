@@ -78,6 +78,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
+    text-align: center; /* Tengah untuk elemen di form */
 }
 
 #order-items {
@@ -104,21 +105,41 @@ textarea {
     border-radius: 4px;
 }
 
-/* Styling untuk tombol */
-button {
+/* Styling untuk tombol Kirim Pesanan */
+button.kirim-pesanan {
     padding: 10px 15px;
-    background-color: #ffcc00;
+    background-color: #4CAF50; /* Warna hijau */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    color: white; /* Warna teks */
+    font-size: 16px;
+    margin-top: 15px;
 }
 
-button:hover {
-    background-color: #ff9900; /* Ganti warna saat hover */
+button.kirim-pesanan:hover {
+    background-color: #45a049; /* Warna hijau gelap saat hover */
 }
 
-/* Styling untuk section promo dan cuaca */
+/* Styling untuk tombol Pesan Promo */
+button.pesan-promo {
+    padding: 10px 15px;
+    background-color: #007BFF; /* Warna biru */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white; /* Warna teks */
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+button.pesan-promo:hover {
+    background-color: #0056b3; /* Warna biru gelap saat hover */
+}
+
+/* Styling untuk video di section promo */
 video {
     max-width: 100%;
     margin: 10px 0;
@@ -142,5 +163,11 @@ footer {
 
     nav ul li {
         margin: 10px 0;
+    }
+
+    /* Membuat tombol memenuhi lebar layar pada perangkat kecil */
+    button.kirim-pesanan,
+    button.pesan-promo {
+        width: 100%;
     }
 }
