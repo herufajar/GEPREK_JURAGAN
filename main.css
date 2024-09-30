@@ -1,183 +1,109 @@
-/* Reset beberapa default styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('assets/images/yellow.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
+    background-image: url('assets/images/yellow.jpg'); /* Ganti dengan nama file gambar latar belakang */
+    background-size: cover; /* Membuat gambar menutupi seluruh halaman */
+    background-position: center; /* Mengatur posisi gambar di tengah */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+    color: #fff; /* Mengubah warna teks agar lebih kontras */
+    font-family: 'Arial', sans-serif; /* Menambahkan font yang lebih baik */
 }
 
-/* Styling untuk header */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang header dengan transparansi */
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    max-width: 150px;
+    max-width: 150px; /* Membatasi ukuran logo */
 }
 
-/* Styling untuk navigasi */
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Menghilangkan bullet point dari list */
+    margin: 0;
+    padding: 0;
     display: flex;
+    gap: 20px; /* Jarak antar link */
 }
 
-nav ul li {
-    margin: 0 15px;
+nav a {
+    color: #ff5722; /* Warna link */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    font-weight: bold; /* Membuat teks link lebih tebal */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+nav a:hover {
+    text-decoration: underline; /* Memberikan garis bawah saat hover */
 }
 
-nav ul li a:hover {
-    color: #ffcc00; /* Ganti warna saat hover */
-}
-
-/* Styling untuk bagian utama */
 main {
     padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang utama dengan transparansi */
+    border-radius: 10px; /* Membuat sudut lebih halus */
 }
 
-/* Styling untuk menu */
+h2 {
+    font-size: 24px; /* Ukuran font untuk heading */
+    border-bottom: 2px solid #ff5722; /* Garis bawah heading */
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Jarak di bawah heading */
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Membuat grid responsif */
+    gap: 20px; /* Jarak antar item grid */
 }
 
 .grid-item {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Latar belakang item grid */
+    border-radius: 10px; /* Sudut melengkung */
+    padding: 15px;
+    text-align: center; /* Menyelaraskan teks di tengah */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
 }
 
 .menu-image {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-/* Styling untuk form pemesanan */
-#order-form {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-<<<<<<< HEAD
-    text-align: center; /* Tengah untuk elemen di form */
-=======
-    text-align: center;
->>>>>>> f3ef66e52cae1362dab094a80ca5d599db3d8abc
-}
-
-#order-items {
-    margin-bottom: 20px;
+    max-width: 100%; /* Memastikan gambar tidak melampaui batas */
+    border-radius: 10px; /* Sudut melengkung pada gambar */
 }
 
 .order-item {
     margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin: 5px 0;
-}
-
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Styling untuk tombol Kirim Pesanan */
-button.kirim-pesanan {
-    padding: 10px 15px;
-    background-color: #4CAF50; /* Warna hijau */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: white; /* Warna teks */
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-button.kirim-pesanan:hover {
-    background-color: #45a049; /* Warna hijau gelap saat hover */
-}
-
-/* Styling untuk tombol Pesan Promo */
-button.pesan-promo {
-    padding: 10px 15px;
-    background-color: #007BFF; /* Warna biru */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: white; /* Warna teks */
-    font-size: 16px;
-    margin-top: 15px;
-}
-
-button.pesan-promo:hover {
-    background-color: #0056b3; /* Warna biru gelap saat hover */
-}
-
-/* Styling untuk video di section promo */
-video {
-    max-width: 100%;
-    margin: 10px 0;
-}
-
-/* Styling untuk footer */
-footer {
-    text-align: center;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(83, 223, 28, 0.8);
+}
+
+button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Transisi saat hover */
+}
+
+button:hover {
+    background-color: #e64a19; /* Warna saat hover */
+}
+
+.promo-video {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px; /* Sudut melengkung pada video */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang footer */
+    color: #fff; /* Warna teks footer */
+    text-align: center; /* Menyelaraskan teks di tengah */
+    padding: 10px;
     position: relative;
     bottom: 0;
-    width: 100%;
-}
-
-/* Responsive styling */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-<<<<<<< HEAD
-    /* Membuat tombol memenuhi lebar layar pada perangkat kecil */
-    button.kirim-pesanan,
-    button.pesan-promo {
-        width: 100%;
-=======
-    button.kirim-pesanan,
-    button.pesan-promo {
-        width: 100%; /* Membuat tombol memenuhi lebar layar pada perangkat kecil */
->>>>>>> f3ef66e52cae1362dab094a80ca5d599db3d8abc
-    }
+    width: 100%; /* Memastikan footer penuh lebar */
 }
