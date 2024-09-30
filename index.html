@@ -227,6 +227,21 @@
                 orderItem.remove();
             }
         });
+
+        function sendOrder() {
+            const name = document.getElementById('nama').value;
+            const menuItems = Array.from(document.querySelectorAll('select[name="menu[]"]')).map(select => select.value).join(', ');
+            const quantities = Array.from(document.querySelectorAll('input[name="jumlah[]"]')).map(input => input.value).join(', ');
+            const tempat = document.getElementById('tempat').value;
+            const keterangan = document.getElementById('keterangan').value;
+            const phoneNumber = '6285643771401'; // Nomor WhatsApp
+            const message = `Pesanan Baru:\nNama: ${name}\nMenu: ${menuItems}\nJumlah: ${quantities}\nTempat COD: ${tempat}\nKeterangan: ${keterangan}`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            // Redirect to WhatsApp
+            window.open(url, '_blank');
+            return false; // Prevent default form submission
+        }
     
         function sendWhatsApp() {
             const selectedPromo = document.getElementById('promo-menu').value;
