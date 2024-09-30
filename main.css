@@ -14,7 +14,7 @@ header {
     padding: 15px 30px; /* Menambah padding untuk ruang yang lebih nyaman */
     background-color: #c20e0e; /* Warna latar belakang yang bold */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan halus di bawah header */
-    position: sticky; /* Membuat header tetap di atas saat scroll */
+    position: relative; /* Membuat header tetap di atas saat scroll */
     top: 0; /* Menempatkan header di atas */
     z-index: 1000; /* Menjamin header berada di atas elemen lainnya */
 }
