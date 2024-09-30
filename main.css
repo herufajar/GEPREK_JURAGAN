@@ -10,19 +10,40 @@ body {
 }
 
 header {
-    position: relative; /* Membuat header tetap di atas */
-    top: 0; /* Posisi di atas */
-    left: 0; /* Posisi di kiri */
-    right: 0; /* Posisi di kanan */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 10px 20px;
-    background-color: #c20e0e; /* Warna latar belakang header */
-    transition: top 0.3s; /* Transisi yang halus untuk efek muncul/hilang */
-    margin-top: 0%;
+    background-color: #c20e0e; /* Warna latar belakang */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan header */
+    z-index: 100;
+    transition: top 0.3s ease-in-out;
+    height: 60px; /* Tinggi header */
+}
+
+body {
+    padding-top: 60px; /* Tambahkan padding sebesar tinggi header */
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto; /* Untuk tampilan mobile, header bisa berubah ukuran */
+    }
+    
+    body {
+        padding-top: auto; /* Sesuaikan padding di mobile */
+    }
 }
 
 .logo {
-    max-width: 150px; /* Mengatur ukuran maksimum logo agar responsif */
+    margin-bottom: 0%;
+    width: 50px; /* Adjust logo size for mobile */
 }
+
 
 nav ul {
     list-style: none; /* Menghapus bullet point */
@@ -62,10 +83,7 @@ nav ul li a:hover {
         align-items: center;
     }
     
-    .logo {
-        margin-bottom: 15px;
-        width: 120px; /* Adjust logo size for mobile */
-    }
+    
 
     nav ul {
         flex-direction: column;
@@ -78,9 +96,7 @@ nav ul li a:hover {
 }
 
 
-.logo {
-    max-width: 150px; /* Membatasi ukuran logo */
-}
+
 
 nav ul {
     list-style-type: none; /* Menghilangkan bullet point dari list */
@@ -122,7 +138,7 @@ h2 {
 }
 
 .grid-item {
-    background: hsla(118, 88%, 50%, 0.733); /* Warna yang lebih lembut dan elegan */
+    background: hsla(73, 70%, 87%, 0.993); /* Warna yang lebih lembut dan elegan */
     border-radius: 12px; /* Sudut yang sedikit lebih melengkung */
     padding: 20px; /* Memberikan ruang dalam yang lebih nyaman */
     text-align: center; /* Menyelaraskan teks di tengah */
@@ -134,7 +150,7 @@ h2 {
 .grid-item:hover {
     transform: translateY(-8px); /* Sedikit mengangkat item saat di-hover */
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih dalam saat di-hover */
-    background: hsla(118, 70%, 85%, 0.95); /* Warna latar yang sedikit lebih terang saat di-hover */
+    background: hsla(108, 85%, 54%, 0.863); /* Warna latar yang sedikit lebih terang saat di-hover */
 }
 
 /* Tambahkan efek untuk teks dan konten dalam grid-item */
