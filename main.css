@@ -9,6 +9,7 @@ body {
     font-family: 'Arial', sans-serif; /* Menambahkan font yang lebih baik */
 }
 
+/* Header styles */
 header {
     position: fixed;
     top: 0;
@@ -29,91 +30,110 @@ body {
     padding-top: 60px; /* Tambahkan padding sebesar tinggi header */
 }
 
-@media (max-width: 768px) {
-    header {
-        height: auto; /* Untuk tampilan mobile, header bisa berubah ukuran */
-    }
-    
-    body {
-        padding-top: auto; /* Sesuaikan padding di mobile */
-    }
-}
-
+/* Logo styling */
 .logo {
     margin-bottom: 0%;
-    width: 50px; /* Adjust logo size for mobile */
+    width: 50px; /* Ukuran logo */
 }
 
-
+/* Navigation styles */
 nav ul {
-    list-style: none; /* Menghapus bullet point */
-    display: flex; /* Mengatur ul menjadi flexbox */
+    list-style: none;
+    display: flex;
     gap: 20px; /* Jarak antar item navigasi */
-    padding: 0; /* Menghapus padding default */
-    margin: 0; /* Menghapus margin default */
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-    transition: transform 0.3s ease; /* Menambahkan efek transisi */
+    transition: transform 0.3s ease;
 }
 
 nav ul li:hover {
-    transform: scale(1.1); /* Efek membesar saat hover */
+    transform: scale(1.1);
 }
 
 nav ul li a {
-    text-decoration: none; /* Menghapus garis bawah */
-    color: #ffffff; /* Warna teks putih untuk kontras */
-    font-weight: bold; /* Menebalkan teks */
-    padding: 5px 10px; /* Menambahkan padding untuk link */
-    border-radius: 5px; /* Menambahkan sudut melengkung */
-    transition: background-color 0.3s ease; /* Efek transisi pada background */
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Warna latar belakang saat hover */
-    border-radius: 5px; /* Sudut melengkung saat hover */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger i {
+    font-size: 30px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Saat dalam keadaan aktif, bisa ganti ikon menjadi 'close' */
+.hamburger.active i {
+    content: '\f00d'; /* Font Awesome icon for close (X) */
+    font-size: 30px;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Hanya tampil di perangkat mobile */
+    }
 }
 
 
-/* Mobile-first styling */
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    
-
     nav ul {
         flex-direction: column;
-        align-items: center;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #c20e0e;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    nav ul.show {
+        height: 250px; /* Show the nav when toggled */
     }
 
     nav ul li {
         margin: 10px 0;
+        text-align: center;
     }
+
+    body {
+        padding-top: 60px; /* Tetap menjaga padding sesuai tinggi header */
+    }
+
+
+/* Hamburger toggle active state */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg);
+    background-color: #fff;
 }
 
-
-
-
-nav ul {
-    list-style-type: none; /* Menghilangkan bullet point dari list */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px; /* Jarak antar link */
+.hamburger.active div:nth-child(2) {
+    opacity: 50%;
 }
 
-nav a {
-    color: #ff5722; /* Warna link */
-    text-decoration: none; /* Menghilangkan garis bawah */
-    font-weight: bold; /* Membuat teks link lebih tebal */
-}
-
-nav a:hover {
-    text-decoration: underline; /* Memberikan garis bawah saat hover */
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+    background-color: #fff;
 }
 
 main {
