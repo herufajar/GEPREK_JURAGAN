@@ -78,7 +78,11 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
+<<<<<<< HEAD
     text-align: center; /* Tengah untuk elemen di form */
+=======
+    text-align: center;
+>>>>>>> f3ef66e52cae1362dab094a80ca5d599db3d8abc
 }
 
 #order-items {
@@ -165,9 +169,15 @@ footer {
         margin: 10px 0;
     }
 
+<<<<<<< HEAD
     /* Membuat tombol memenuhi lebar layar pada perangkat kecil */
     button.kirim-pesanan,
     button.pesan-promo {
         width: 100%;
+=======
+    button.kirim-pesanan,
+    button.pesan-promo {
+        width: 100%; /* Membuat tombol memenuhi lebar layar pada perangkat kecil */
+>>>>>>> f3ef66e52cae1362dab094a80ca5d599db3d8abc
     }
 }
