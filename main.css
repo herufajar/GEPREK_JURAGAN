@@ -108,7 +108,7 @@ nav ul li a:hover {
     }
 
     nav ul.show {
-        height: 150px; /* Show the nav when toggled */
+        height: 200px; /* Show the nav when toggled */
     }
 
     nav ul li {
