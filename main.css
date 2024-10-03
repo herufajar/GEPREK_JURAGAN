@@ -1,12 +1,30 @@
 body {
+    height: auto;
+    margin: 0;
+    padding: 0;
     background-image: url('assets/images/yellow.jpg'); /* Ganti dengan nama file gambar latar belakang */
     background-size: cover; /* Membuat gambar menutupi seluruh halaman */
     background-position: center; /* Mengatur posisi gambar di tengah */
     background-repeat: no-repeat; /* Menghindari pengulangan gambar */
-    color: hsl(17, 64%, 98%); /* Mengubah warna teks agar lebih kontras */
-    margin-top: 0%;
-    margin-inline-start: 0%;
+    color: hsl(10, 89%, 42%); /* Mengubah warna teks agar lebih kontras */
     font-family: 'Arial', sans-serif; /* Menambahkan font yang lebih baik */
+}
+
+h1 {
+    font-style: italic;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #c20e0e;
+    padding: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #c20e0e;
+    
 }
 
 /* Header styles */
@@ -24,10 +42,6 @@ header {
     z-index: 100;
     transition: top 0.3s ease-in-out;
     height: 60px; /* Tinggi header */
-}
-
-body {
-    padding-top: 60px; /* Tambahkan padding sebesar tinggi header */
 }
 
 /* Logo styling */
@@ -67,13 +81,20 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
+/* Hamburger styling */
 .hamburger {
-    display: none;
-    background: none;
-    border: none;
+    display: none; /* Sembunyikan di desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; /* Lebar hamburger */
+    height: 30px; /* Tinggi hamburger */
     cursor: pointer;
-    z-index: 101;
+    position: absolute; /* Agar bisa posisinya bebas */
+    top: 1px; /* Jarak dari atas header */
+    right: 20px; /* Jarak dari kanan */
+    z-index: 101; /* Agar berada di atas */
 }
+
 
 .hamburger i {
     font-size: 30px;
@@ -136,6 +157,7 @@ nav ul li a:hover {
     background-color: #fff;
 }
 
+
 main {
     padding: 20px;
     background: rgba(227, 252, 3, 0); /* Latar belakang utama dengan transparansi */
@@ -170,7 +192,7 @@ h2 {
 .grid-item:hover {
     transform: translateY(-8px); /* Sedikit mengangkat item saat di-hover */
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); /* Shadow lebih dalam saat di-hover */
-    background: hsla(108, 85%, 54%, 0.863); /* Warna latar yang sedikit lebih terang saat di-hover */
+    background: hsla(108, 95%, 64%, 0.863); /* Warna latar yang sedikit lebih terang saat di-hover */
 }
 
 /* Tambahkan efek untuk teks dan konten dalam grid-item */
@@ -197,29 +219,110 @@ h2 {
     border-radius: 10px; /* Sudut melengkung pada gambar */
 }
 
-.order-item {
-    margin-bottom: 15px; /* Sedikit lebih besar untuk memberikan ruang */
-    padding: 15px; /* Memberikan lebih banyak ruang di dalam item */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Border yang lebih halus */
-    border-radius: 10px; /* Radius lebih besar untuk sudut yang lembut */
-    background-color: rgba(180, 241, 14, 0.815); /* Warna lebih lembut dengan transparansi */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Memberikan shadow untuk efek melayang */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi untuk interaksi yang halus */
+form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px; /* Menambahkan padding bawah agar ada ruang ekstra untuk tombol */
+    overflow: hidden; /* Mencegah elemen terpotong */
+    gap: 15px; /* Menambahkan jarak antar elemen form */
+    width: 100%;
+    max-width: 400px; /* Menentukan lebar maksimum form */
+    margin: 0 auto; /* Untuk membuat form berada di tengah halaman */
+    padding: 20px;
+    background-color: #fff; /* Menambahkan background form putih */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Memberikan shadow ringan pada form */
 }
+
+input, select, textarea {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%; /* Mengatur input dan select agar memenuhi lebar container */
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 100%; /* Mengatur tombol agar memenuhi lebar form */
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Memastikan padding tidak membuat elemen tombol melewati batas */
+}
+
+button#hapus {
+    background-color: #ff6347; /* Warna khusus untuk tombol hapus */
+    margin: 50rem;
+    padding: 10rem;
+}
+
+button#hapus:hover {
+    background-color: #ff4500; /* Warna saat hover */
+}
+
+button#tambah-item, button#kirim-pesanan {
+    background-color: #ff4500; /* Warna dasar tombol */
+    margin: 10px 0;
+    font-size: 1rem;
+    width: 100%; /* Memastikan lebar tombol 100% */
+}
+
+button#tambah-item:hover, button#kirim-pesanan:hover {
+    background-color: #e33b00; /* Warna saat hover */
+}
+
+
+.order-item, 
+form {
+    display: block;
+    margin-top: 2rem;
+    background-color: #f7faf7;
+    border: 1px solid #eee;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #333;
+    border-radius: 10px;
+}
+
 
 /* Hover effect untuk memberikan efek interaksi */
 .order-item:hover {
     transform: translateY(-5px); /* Sedikit naik saat di-hover */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Shadow yang lebih dalam saat di-hover */
-    background-color: rgba(49, 245, 10, 0.829); /* Warna latar belakang sedikit lebih terang */
+    background-color: rgba(10, 190, 245, 0.829); /* Warna latar belakang sedikit lebih terang */
+}
+
+form:hover {
+    transform: translateY(-5px); /* Sedikit naik saat di-hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Shadow yang lebih dalam saat di-hover */
+    background-color: rgba(255, 182, 193, 1); /* Warna latar belakang sedikit lebih terang */
 }
 
 
+
 button {
+    width: 50%;
     background-color: #ff5722;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s; /* Transisi saat hover */
@@ -229,6 +332,7 @@ button:hover {
     background-color: #e64a19; /* Warna saat hover */
 }
 
+
 .promo-video {
     max-width: 100%;
     height: auto;
@@ -237,8 +341,8 @@ button:hover {
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang footer */
-    color: #fff; /* Warna teks footer */
+    background-color: rgba(248, 147, 89, 0.959); /* Latar belakang footer */
+    color: #ffffff; /* Warna teks footer */
     text-align: center; /* Menyelaraskan teks di tengah */
     padding: 10px;
     position: relative;
